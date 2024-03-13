@@ -1,34 +1,38 @@
-import { type Doc, type APISpaceXResponse} from "../type/api.ts"
+import React from "preact/compat";
 
-
-export const getLauchBy = async ({id}: { id: string}) => {
-
-const res = await fetch(`https://api.spacexdata.com/v5/launches/${id}`)
-
-const launch = await res.json() as Doc
-
-return launch
-
-}
+ const launches = [
+    {
+      id: "1",
+      title: "1",
+      description: "1",
+      url: "https://th.bing.com/th/id/OIP.lT4m1XPdwkHimHwGJ2WVLQHaEV?rs=1&pid=ImgDetMain",
+    },
+    {
+      id: "3",
+      title: "2",
+      description: "2",
+      url: "https://th.bing.com/th/id/OIP.lT4m1XPdwkHimHwGJ2WVLQHaEV?rs=1&pid=ImgDetMain",
+    },
+    {
+      id: "3",
+      title: "3",
+      description: "3",
+      url: "https://th.bing.com/th/id/OIP.lT4m1XPdwkHimHwGJ2WVLQHaEV?rs=1&pid=ImgDetMain",
+    },
+  ];
 
 export const getLastesLaunches = async () => {
+  return launches;
+};
 
-const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
-   method: "POST",
-   headers: {
-       "Content-Type": "application/json"
-   },
-   body: JSON.stringify({
-       query: {},
-       options: {
-           sort: {
-               date_unix: "asc"
-           },
-           limit: 12,
-       },
-   }),
-})
-const { docs: launches } = await res.json() as APISpaceXResponse
+export const getLauchBy = async ( {id}: { id: string} ) => {
 
-return launches
+const launch = launches.find((launch) => launch.id === id);
+
+if (!launch) {
+  throw new Error("Launch not found");
 }
+
+return launch;
+
+};
