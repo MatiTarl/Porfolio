@@ -5,10 +5,9 @@ import Image from "next/image";
 
 export default function Carousel() {
   let slides = [
-    "https://i.pinimg.com/originals/51/82/ac/5182ac536727d576c78a9320ac62de30.jpg",
-    "https://wallpapercave.com/wp/wp3386769.jpg",
-    "https://wallpaperaccess.com/full/809523.jpg",
-    "https://getwallpapers.com/wallpaper/full/5/c/0/606489.jpg",
+    "/EcconomyPage.png",
+    "/GastifyPage.png",
+    "/abogadoPage.png"
   ];
   let [current, setCurrent] = useState(0);
 
@@ -24,8 +23,8 @@ export default function Carousel() {
 
   return (
     <section>
-      <div className="flex flex-col justify-center items-center">
-        <div className="overflow-hidden relative sm:w-[60%] shadow-[0px_10px_107px_5px_rgba(253,_253,_253,_0.2)] rounded-3xl">
+      <div className="flex flex-col justify-center items-center ">
+        <div className="overflow-hidden relative shadow-[0px_10px_107px_5px_rgba(253,_253,_253,_0.2)] rounded-3xl sm:w-[800px]">
           <a href="https://google.com.ar">
             <div
               className={`flex transition ease-out duration-700 hs-carousel-body`}

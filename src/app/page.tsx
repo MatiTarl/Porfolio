@@ -10,7 +10,7 @@ import Carousel from "./components/carousel/CarouselReact"
 export default function Home() {
   return (
     <header className="w-full flex flex-col mt-5">
-      <div className="mx-auto flex md:flex-row flex-col py-20 md:space-x-20 w-9/12 items-center justify-center">
+      <div className="mx-auto flex md:flex-row flex-col-reverse py-20 md:space-x-20 w-9/12 items-center justify-center">
         <div className="flex flex-col items-center max-w-xl">
           <div className="flex justify-center">
             <div className="text-center">
