@@ -4,8 +4,13 @@ import { saveAs } from "file-saver";
 
 export default function CurriculumButton() {
 
+  // const DescargarPDF = () => {
+  //   saveAs("", "./CurriculumMatias.pdf");
+  // };
+
   const DescargarPDF = () => {
-    saveAs("", "./CurriculumMatias.pdf");
+    const pdfUrl = "./CurriculumMatias.pdf"; // Ruta relativa al archivo PDF
+    window.open(pdfUrl, "_blank");
   };
 
   return (

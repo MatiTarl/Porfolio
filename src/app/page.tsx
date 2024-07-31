@@ -4,7 +4,7 @@ import "../ui/global.css"
 import Image from "next/image";
 import SocialBar from "./components/socialBar/Social"
 import MatiImage from "../ui/images/MatiImageSinFondo1.png"
-import CucrriculumButton from "./components/buttons/CurriculumButton"
+import CucrriculumButton from "./components/CurriculumButton/CurriculumButton"
 import Carousel from "./components/carousel/CarouselReact"
 
 export default function Home() {
