@@ -24,7 +24,7 @@ export default function Carousel() {
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <div className="overflow-hidden relative w-[60%] shadow-[0px_10px_107px_5px_rgba(253,_253,_253,_0.2)] rounded-3xl">
+      <div className="overflow-hidden relative sm:w-[60%] shadow-[0px_10px_107px_5px_rgba(253,_253,_253,_0.2)] rounded-3xl">
         <a href="#">
           <div
             className={`flex transition ease-out duration-700 hs-carousel-body`}
@@ -38,7 +38,7 @@ export default function Carousel() {
           </div>
         </a>
       </div>
-      <div className="absolute w-full justify-between items-center flex text-white px-2 sm:px-10 text-3xl">
+      <div className="hidden sm:flex absolute w-full justify-between items-center text-white px-2 sm:px-10 text-3xl">
         <button onClick={previousSlide}>
           <Left />
         </button>
@@ -46,7 +46,7 @@ export default function Carousel() {
           <Right />
         </button>
       </div>
-      <div className=" bottom-0 sm:py-12 flex justify-center gap-3 w-full">
+      <div className="hidden sm:flex bottom-0 sm:py-12 justify-center gap-3 w-full">
         {slides.map((s, i) => {
           return (
             <div
