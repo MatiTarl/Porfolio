@@ -5,7 +5,7 @@ import { saveAs } from "file-saver";
 export default function CurriculumButton() {
 
   const DescargarPDF = () => {
-    saveAs("", "./PdfC.pdf");
+    saveAs("", "./CurriculumMatias.pdf");
   };
 
   return (
