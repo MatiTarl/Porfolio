@@ -23,28 +23,30 @@ export default function Carousel() {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center">
-      <div className="overflow-hidden relative sm:w-[60%] shadow-[0px_10px_107px_5px_rgba(253,_253,_253,_0.2)] rounded-3xl">
-        <a href="#">
-          <div
-            className={`flex transition ease-out duration-700 hs-carousel-body`}
-            style={{
-              transform: `translateX(-${current * 100}%)`,
-            }}
-          > 
-            {slides.map((slide) => {
-              return  <img src={slide} alt="Slides de proyectos" key=""/>
-            })}
-          </div>
-        </a>
-      </div>
-      <div className="hidden sm:flex absolute w-full justify-between items-center text-white px-2 sm:px-10 text-3xl">
-        <button onClick={previousSlide}>
-          <Left />
-        </button>
-        <button onClick={nextSlide}>
-          <Right />
-        </button>
+    <section >
+      <div className="flex flex-col justify-center items-center">
+        <div className="overflow-hidden relative sm:w-[60%] shadow-[0px_10px_107px_5px_rgba(253,_253,_253,_0.2)] rounded-3xl">
+          <a href="https://google.com.ar">
+            <div
+              className={`flex transition ease-out duration-700 hs-carousel-body`}
+              style={{
+                transform: `translateX(-${current * 100}%)`,
+              }}
+            >
+              {slides.map((slide) => {
+                return <img src={slide} alt="Slides de proyectos" key="" />;
+              })}
+            </div>
+          </a>
+        </div>
+        <div className=" sm:flex sm:absolute w-full justify-between items-center text-white pt-5 sm:pt-0 px-2 sm:px-10 text-3xl">
+          <button onClick={previousSlide}>
+            <Left />
+          </button>
+          <button onClick={nextSlide}>
+            <Right />
+          </button>
+        </div>
       </div>
       <div className="hidden sm:flex bottom-0 sm:py-12 justify-center gap-3 w-full">
         {slides.map((s, i) => {
