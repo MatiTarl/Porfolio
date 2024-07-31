@@ -1,18 +1,23 @@
 import React from 'react'
 import Download from "../../../ui/icons/Download"
-import PdfC from "../../../../public/PdfC.pdf"
+import { saveAs } from "file-saver";
 
 export default function CurriculumButton() {
+
+  const DescargarPDF = () => {
+    saveAs("", "./PdfC.pdf");
+  };
+
   return (
-    <div class="text-white w-full h-auto flex justify-center p-4">
-  <a class="w-auto px-4 bg-zinc-200 h-10 flex rounded-3xl items-center" href={PdfC} download="Curriculum Matias Tari">
-    <div class="pr-2">
+    <div className="text-white w-full h-auto flex justify-center p-4">
+  <button onClick={DescargarPDF} className="w-auto px-4 bg-zinc-200 h-10 flex rounded-3xl items-center" >
+    <div className="pr-2">
       <Download />
     </div>
-    <div class="text-slate-950">
+    <div className="text-slate-950">
         Curriculum
     </div>
-  </a>
+  </button>
 </div>
 
   )

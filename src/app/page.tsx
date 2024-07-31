@@ -28,7 +28,7 @@ export default function Home() {
             mundo de la programación y su potencial para soluciones infinitas.
             Contáctame por cualquier consulta.
           </p>
-          {/* <CucrriculumButton/> */}
+          <CucrriculumButton/>
         </div>
         <div className="max-w-40 sm:max-w-60 md:max-w-80 items-center flex justify-center">
           <Image
