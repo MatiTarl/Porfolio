@@ -23,7 +23,7 @@ export default function Carousel() {
   };
 
   return (
-    <section >
+    <section>
       <div className="flex flex-col justify-center items-center">
         <div className="overflow-hidden relative sm:w-[60%] shadow-[0px_10px_107px_5px_rgba(253,_253,_253,_0.2)] rounded-3xl">
           <a href="https://google.com.ar">
@@ -39,11 +39,17 @@ export default function Carousel() {
             </div>
           </a>
         </div>
-        <div className=" sm:flex sm:absolute w-full justify-between items-center text-white pt-5 sm:pt-0 px-2 sm:px-10 text-3xl">
-          <button onClick={previousSlide}>
+        <div className=" flex sm:absolute w-full justify-center sm:justify-between items-center text-white pt-5 sm:pt-0 px-2 sm:px-10 text-3xl">
+          <button
+            onClick={previousSlide}
+            className="relative overflow-hidden rounded-md px-5 py-2.5 text-white transition-all duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110"
+          >
             <Left />
           </button>
-          <button onClick={nextSlide}>
+          <button
+            onClick={nextSlide}
+            className="relative overflow-hidden rounded-md px-5 py-2.5 text-white transition-all duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110"
+          >
             <Right />
           </button>
         </div>
