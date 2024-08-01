@@ -24,6 +24,7 @@ export default function Carousel() {
   return (
     <section>
       <div className="flex flex-col justify-center items-center ">
+      <h2 class="text-4xl text-white pb-10">Proyectos</h2>
         <div className="overflow-hidden relative shadow-[0px_10px_107px_5px_rgba(253,_253,_253,_0.2)] rounded-3xl sm:w-[800px]">
           <a href="https://google.com.ar">
             <div
