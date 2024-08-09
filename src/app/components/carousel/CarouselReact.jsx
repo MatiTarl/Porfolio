@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useState } from "react";
 //-----------------ICONS-----------------
 import Right from "../../../ui/icons/right";
@@ -13,32 +12,32 @@ import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./carousel.css"
+import "./carousel.css";
 //-----------------Carousel-----------------
 
 export default function Carousel() {
   let slides = [
     {
-      href: "",
-      img: "/EcconomyPage.png",
+      href: "https://trendy-web-lemon.vercel.app/",
+      img: "/TrendyShop.png",
     },
     {
-      href: "",
+      href: "https://gastify-cloud.vercel.app/",
       img: "/GastifyPage.png",
     },
     {
-      href: "",
+      href: "https://abogado-page.vercel.app/",
       img: "/abogadoPage.png",
     },
     {
-      href: "",
-      img: "/GastifyPage.png",
+      href: "https://justo-blush.vercel.app/",
+      img: "/EcconomyPage.png",
     },
   ];
 
   return (
-    <section className="container ">
-      <div className="items-center flex flex-col text-center pb-10">
+    <section className=" w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-full">
+      <div className="items-center flex flex-col text-center pb-10 ">
         <h2 className="text-4xl text-white p-3">Proyectos</h2>
         <h5 className="text-white">Realizados</h5>
       </div>
@@ -62,15 +61,15 @@ export default function Carousel() {
           clickable: true,
         }}
         modules={[EffectCoverflow, Pagination, Navigation]}
-        className="relative items-center justify-center h-[600px]"
+        className="relative items-center justify-center h-[200px] sm:h-[400px] md:h-[500px] "
       >
         {slides.map((slide) => {
           return (
             <>
-              <SwiperSlide className="max-w-[14rem] sm:max-w-[30rem] relative items-center justify-center mt-10">
+              <SwiperSlide className="max-w-[14rem] max-h-[0px] sm:max-w-[30rem] relative items-center justify-center mt-10">
                 <div className="w-96 h-52 ">
                   <div className="">
-                    <a href="https://www.google.com.ar">
+                    <a href={slide.href}>
                       <img
                         src={slide.img}
                         className="max-w-[14rem] rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-[30rem] transition duration-700 "

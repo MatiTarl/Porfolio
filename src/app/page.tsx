@@ -9,26 +9,28 @@ import Carousel from "./components/carousel/CarouselReact"
 
 export default function Home() {
   return (
-    <header className="w-full flex flex-col mt-5">
+    <header className="w-full flex flex-col mt-5 text-white">
       <div className="mx-auto flex md:flex-row flex-col-reverse py-20 md:space-x-20 w-9/12 items-center justify-center">
         <div className="flex flex-col items-center max-w-xl">
           <div className="flex justify-center">
-            <div className="text-center">
-              <h2 className="text-5xl tracking-tight font-normal text-white">
+            <div className="text-center font-normal ">
+              <h2 className="text-5xl tracking-tight ">
                 Matias Tari
               </h2>
-              <h4 className="text-white font-normal text-2xl pt-2">
+              <h4 className="text-2xl pt-2">
                 FullStack Web Developer
               </h4>
             </div>
           </div>
-          <p className="text-white text-center w-11/12 pt-5 text-xl"></p>
-          <p className="text-white text-center w-11/12 pt-5">
-            Bienvenido/a! Graduado del bootcamp de Henry, descubrí la inmensidad del
-            mundo de la programación y su potencial para soluciones infinitas.
-            Contáctame por cualquier consulta.
-          </p>
-          <CucrriculumButton/>
+          <div className="w-11/12 p-5 text-center">
+            <p className="text-xl">Bienvenido/a!</p>
+            <p className="">
+              Soy graduado del bootcamp de Henry, descubrí la inmensidad del
+              mundo de la programación y su potencial para soluciones infinitas.
+              Contáctame por cualquier consulta.
+            </p>
+          </div>
+          <CucrriculumButton />
         </div>
         <div className="max-w-40 sm:max-w-60 md:max-w-80 items-center flex justify-center">
           <Image
@@ -39,7 +41,7 @@ export default function Home() {
         </div>
       </div>
       <SocialBar />
-      <div className="pt-20 px-5 flex justify-center">
+      <div className="pt-20 flex justify-center">
         <Carousel />
       </div>
     </header>

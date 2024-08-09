@@ -12,7 +12,7 @@ export default function SocialBar() {
               <Linkedin />
             </div>
           </a>
-          <a href="">
+          <a href="mailto:MatiasTari@Outlook.com.ar">
             <div class=" w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-slate-950 items-center flex justify-center transition-all duration-200 [box-shadow:5px_5px_rgb(27_38_49)] hover:translate-x-[3px] hover:translate-y-[3px] hover:[box-shadow:0px_0px_rgb(82_82_82)]">
               <Gmail />
             </div>

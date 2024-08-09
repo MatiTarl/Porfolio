@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased  bg-black min-h-screen pb-32 w-auto flex flex-col items-center `}>
+      <body className={`${inter.className} antialiased bg-black min-h-screen pb-32 w-auto flex flex-col items-center `}>
         {children}
         <footer>
         </footer>
