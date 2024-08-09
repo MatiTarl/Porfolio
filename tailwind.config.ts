@@ -16,16 +16,16 @@ const config: Config = {
       keyframes: {
         desplazarArriba: {
           '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(-15%)' },
+          '100%': { transform: 'translateY(-5%)' },
         },
         volverAbajo: {
-          '0%': { transform: 'translateY(-15%)' },
+          '0%': { transform: 'translateY(-5%)' },
           '100%': { transform: 'translateY(0)' },
         },
       },
       animation: {
-        desplazarArriba: 'desplazarArriba 1s ease-in-out forwards',
-        volverAbajo: 'volverAbajo 1s ease-in-out forwards',
+        desplazarArriba: 'desplazarArriba 0.2s ease-in-out forwards',
+        volverAbajo: 'volverAbajo 0.2s ease-in-out forwards',
       },
     },
   },
