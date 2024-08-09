@@ -67,13 +67,13 @@ export default function Carousel() {
         {slides.map((slide) => {
           return (
             <>
-              <SwiperSlide className="max-w-[10rem] sm:max-w-[30rem] relative items-center justify-center mt-10">
-                <div className="w-96 h-52 cardP ">
+              <SwiperSlide className="max-w-[14rem] sm:max-w-[30rem] relative items-center justify-center mt-10">
+                <div className="w-96 h-52 ">
                   <div className="">
                     <a href="https://www.google.com.ar">
                       <img
                         src={slide.img}
-                        className="max-w-[10rem] rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-[30rem] transition duration-700 "
+                        className="max-w-[14rem] rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-[30rem] transition duration-700 "
                         alt="Slides de proyectos"
                       />
                     </a>
