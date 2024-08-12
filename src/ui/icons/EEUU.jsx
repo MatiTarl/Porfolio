@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function EEUUIcon() {
   return (
@@ -8,7 +8,7 @@ function EEUUIcon() {
           <rect width="28" height="20" fill="#fff" rx="2"></rect>
           <mask
             id="mask0_503_3486"
-            style={{ maskType: "alpha" }}
+            style={{ maskType: 'alpha' }}
             width="28"
             height="20"
             x="0"

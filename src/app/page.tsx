@@ -1,11 +1,12 @@
-"use client"
+'use client';
 
-import "../ui/global.css"
-import Image from "next/image";
-import SocialBar from "./components/socialBar/Social"
-import MatiImage from "../ui/images/MatiImageSinFondo1.png"
-import CucrriculumButton from "./components/CurriculumButton/CurriculumButton"
-import Carousel from "./components/carousel/CarouselReact"
+import '../ui/global.css';
+import Image from 'next/image';
+import SocialBar from './components/socialBar/Social';
+import MatiImage from '../ui/images/MatiImageSinFondo1.png';
+import CucrriculumButton from './components/CurriculumButton/CurriculumButton';
+import Carousel from './components/carousel/CarouselReact';
+import ContactForm from './components/ContactForm/ContactForm';
 
 export default function Home() {
   return (
@@ -14,12 +15,8 @@ export default function Home() {
         <div className="flex flex-col items-center max-w-xl">
           <div className="flex justify-center">
             <div className="text-center font-normal ">
-              <h2 className="text-5xl tracking-tight ">
-                Matias Tari
-              </h2>
-              <h4 className="text-2xl pt-2">
-                FullStack Web Developer
-              </h4>
+              <h2 className="text-5xl tracking-tight ">Matias Tari</h2>
+              <h4 className="text-2xl pt-2">FullStack Web Developer</h4>
             </div>
           </div>
           <div className="w-11/12 p-5 text-center">
@@ -33,18 +30,17 @@ export default function Home() {
           <CucrriculumButton />
         </div>
         <div className="max-w-40 sm:max-w-60 md:max-w-80 items-center flex justify-center">
-          <Image
-            className="img rounded-3xl"
-            src={MatiImage}
-            alt="MatiImage"
-          />
+          <Image className="img rounded-3xl" src={MatiImage} alt="MatiImage" />
         </div>
       </div>
       <SocialBar />
       <div className="pt-20 flex justify-center">
         <Carousel />
       </div>
+      <div className="pt-10 flex justify-center flex-col text-center">
+        <h1 className='text-2xl pb-14'>Contactame para futuros proyectos</h1>
+        <ContactForm />
+      </div>
     </header>
-
   );
 }

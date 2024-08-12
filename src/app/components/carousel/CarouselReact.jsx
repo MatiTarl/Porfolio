@@ -1,37 +1,37 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 //-----------------ICONS-----------------
-import Right from "../../../ui/icons/right";
-import Left from "../../../ui/icons/left";
+import Right from '../../../ui/icons/right';
+import Left from '../../../ui/icons/left';
 //-----------------ICONS-----------------
 //-----------------Carousel-----------------
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-coverflow";
-import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "./carousel.css";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
+import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import './carousel.css';
 //-----------------Carousel-----------------
 
 export default function Carousel() {
   let slides = [
     {
-      href: "https://trendy-web-lemon.vercel.app/",
-      img: "/TrendyShop.png",
+      href: 'https://trendy-web-lemon.vercel.app/',
+      img: '/TrendyShop.png',
     },
     {
-      href: "https://gastify-cloud.vercel.app/",
-      img: "/GastifyPage.png",
+      href: 'https://gastify-cloud.vercel.app/',
+      img: '/GastifyPage.png',
     },
     {
-      href: "https://abogado-page.vercel.app/",
-      img: "/abogadoPage.png",
+      href: 'https://abogado-page.vercel.app/',
+      img: '/abogadoPage.png',
     },
     {
-      href: "https://justo-blush.vercel.app/",
-      img: "/EcconomyPage.png",
+      href: 'https://justo-blush.vercel.app/',
+      img: '/EcconomyPage.png',
     },
   ];
 
@@ -42,22 +42,22 @@ export default function Carousel() {
         <h5 className="text-white">Realizados</h5>
       </div>
       <Swiper
-        effect={"coverflow"}
+        effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
         loop={true}
         onAutoplay={true}
-        slidesPerView={"auto"}
+        slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
           depth: 100,
           modifier: 2.5,
         }}
-        pagination={{ el: "swiper-pagination", clickable: true }}
+        pagination={{ el: 'swiper-pagination', clickable: true }}
         navigation={{
-          nextEl: "swiper-button-next",
-          prevEl: "swiper-button-prev",
+          nextEl: 'swiper-button-next',
+          prevEl: 'swiper-button-prev',
           clickable: true,
         }}
         modules={[EffectCoverflow, Pagination, Navigation]}

@@ -3,8 +3,5 @@
 @tailwind utilities;
 
 .img {
-    mask-image: linear-gradient( 
-       black 70%,
-       transparent
-    )
-   }
+  mask-image: linear-gradient(black 70%, transparent);
+}

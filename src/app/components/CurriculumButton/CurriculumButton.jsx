@@ -1,5 +1,5 @@
-import React from "react";
-import Download from "../../../ui/icons/Download";
+import React from 'react';
+import Download from '../../../ui/icons/Download';
 
 export default function CurriculumButton() {
   return (
@@ -13,7 +13,6 @@ export default function CurriculumButton() {
           <Download />
         </div>
         <div className="text-slate-950">Curriculum</div>
-        
       </a>
     </div>
   );
