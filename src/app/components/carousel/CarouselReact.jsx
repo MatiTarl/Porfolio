@@ -1,10 +1,6 @@
 'use client';
+import Image from 'next/image';
 
-import { useState } from 'react';
-//-----------------ICONS-----------------
-import Right from '../../../ui/icons/right';
-import Left from '../../../ui/icons/left';
-//-----------------ICONS-----------------
 //-----------------Carousel-----------------
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -70,7 +66,9 @@ export default function Carousel() {
                 <div className="w-96 h-52 ">
                   <div className="">
                     <a href={slide.href}>
-                      <img
+                      <Image
+                        width={480}
+                        height={480}
                         src={slide.img}
                         className="max-w-[14rem] rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-[30rem] transition duration-700 "
                         alt="Slides de proyectos"

@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .img {
   mask-image: linear-gradient(black 70%, transparent);
+}
+
+#barNoProgress {
+  position: fixed;
+  top: 5%;
+  right: 1.5%;
+  width: 2px;
+  height: 90%;
+  background: slategrey;
+}
+
+#barProgress {
+  position: fixed;
+  top: 5%;
+  right: 1.5%;
+  width: 2px;
+  height: 0%;
+  background: seashell;
+
+  animation: progress-grow auto linear;
+  animation-timeline: scroll(root block);
+}
+
+@keyframes progress-grow {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 90%;
+  }
 }
