@@ -3,7 +3,7 @@ import React from 'react';
 export default function ContactForm() {
   return (
     <section className="text-white w-full text-start">
-      <form class="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-5xl mx-auto">
+      <form class="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto">
         <div class="grid md:grid-cols-2 md:gap-6">
           <div class="relative z-0 w-full mb-5 group">
             <input
