@@ -11,7 +11,7 @@ function Linkedin() {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
-      className="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin w-4 h-4 sm:w-6 sm:h-6"
+      className="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"
       viewBox="0 0 24 24"
     >
       <path stroke="none" d="M0 0h24v24H0z"></path>

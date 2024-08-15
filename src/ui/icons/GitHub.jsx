@@ -11,7 +11,7 @@ function Github() {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
-      className="icon icon-tabler icons-tabler-outline icon-tabler-brand-github w-4 h-4 sm:w-6 sm:h-6"
+      className="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"
       viewBox="0 0 24 24"
     >
       <path stroke="none" d="M0 0h24v24H0z"></path>
