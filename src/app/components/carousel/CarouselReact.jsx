@@ -34,7 +34,7 @@ export default function Carousel() {
   return (
     <section className=" w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-full">
       <div className="items-center flex flex-col text-center pb-10 ">
-        <h2 className="text-4xl text-white p-3">Proyectos</h2>
+        <h2 className="text-2xl md:text-4xl text-white p-3">Proyectos</h2>
         <h5 className="text-white">Realizados</h5>
       </div>
       <Swiper

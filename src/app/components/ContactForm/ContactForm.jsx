@@ -1,15 +1,60 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import emailjs, { sendForm } from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function ContactForm() {
+  const form = useRef();
+  const captcha = useRef(null);
+  const [CaptchaValue, cambiarCaptchaValue] = useState(false);
+
+  const onChangeCaptcha = () => {
+    if (captcha.current.getValue()) {
+      cambiarCaptchaValue(true);
+    } else {
+      cambiarCaptchaValue(false);
+    }
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if (CaptchaValue == true) {
+      emailjsFuncion();
+    } else {
+      cambiarCaptchaValue(false);
+    }
+  };
+
+  const emailjsFuncion = () => {
+    emailjs
+      .sendForm('service_o7jfre1', 'template_rdbf62m', form.current, {
+        publicKey: 'lL8-frxdBlhkmSDhh',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          document.getElementById('formContact').reset();
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
   return (
     <section className="text-white w-full text-start">
-      <form class="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto">
+      <form
+        class="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto"
+        ref={form}
+        onSubmit={sendEmail}
+        id="formContact"
+      >
         <div class="grid md:grid-cols-2 md:gap-6">
           <div class="relative z-0 w-full mb-5 group">
             <input
               type="text"
-              name="floating_first_name"
-              id="floating_first_name"
+              name="user_name"
+              id="user_name"
               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
@@ -33,8 +78,8 @@ export default function ContactForm() {
           <div class="relative z-0 w-full mb-5 group">
             <input
               type="text"
-              name="floating_last_name"
-              id="floating_last_name"
+              name="user.email"
+              id="user.email"
               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
@@ -60,9 +105,10 @@ export default function ContactForm() {
         <div class="relative z-0 w-full mb-5 mt-5 group">
           <textarea
             type="text"
-            name="consulta"
-            id="floating_consulta"
+            name="message"
+            id="message"
             className="block px-0 w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            required
           ></textarea>
           <label
             for=""
@@ -70,6 +116,24 @@ export default function ContactForm() {
           >
             Escribe tu propuesta
           </label>
+        </div>
+        <div className="mb-5 justify-center md:justify-start items-center text-center md:text-start md:space-x-5 flex flex-col md:flex-row">
+          <ReCAPTCHA
+            ref={captcha}
+            sitekey="6LePkCsqAAAAAHL8yq08nc91pFRw_nix5OR-qRr0"
+            onChange={onChangeCaptcha}
+          />
+          <span
+            className={
+              CaptchaValue == true
+                ? `text-green-600 transition-all duration-700`
+                : `text-red-600 transition-all duration-700`
+            }
+          >
+            {CaptchaValue === true
+              ? ''
+              : 'Se tiene que realizar el captcha para enviar el formulario'}
+          </span>
         </div>
         <button
           type="submit"
