@@ -1,8 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs, { sendForm } from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function ContactForm() {
+  const templateEmailJs = process.env.TEMPLATE_EMAIL;
+  const serviceEmailJs = process.env.SERVICE_EMAIL;
+  const keyCaptcha = process.env.KEY_CAPTCHA;
+  const PublicKeyEmailJs = process.env.KEY_EMAILJS;
   const form = useRef();
   const captcha = useRef(null);
   const [CaptchaValue, cambiarCaptchaValue] = useState(false);
@@ -27,8 +31,8 @@ export default function ContactForm() {
 
   const emailjsFuncion = () => {
     emailjs
-      .sendForm('service_o7jfre1', 'template_rdbf62m', form.current, {
-        publicKey: 'lL8-frxdBlhkmSDhh',
+      .sendForm(serviceEmailJs, templateEmailJs, form.current, {
+        publicKey: PublicKeyEmailJs,
       })
       .then(
         () => {
@@ -120,7 +124,7 @@ export default function ContactForm() {
         <div className="mb-5 justify-center md:justify-start items-center text-center md:text-start md:space-x-5 flex flex-col md:flex-row">
           <ReCAPTCHA
             ref={captcha}
-            sitekey="6LePkCsqAAAAAHL8yq08nc91pFRw_nix5OR-qRr0"
+            sitekey={"6LePkCsqAAAAAHL8yq08nc91pFRw_nix5OR-qRr0"}
             onChange={onChangeCaptcha}
           />
           <span
