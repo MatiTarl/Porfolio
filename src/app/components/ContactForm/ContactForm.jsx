@@ -124,7 +124,7 @@ export default function ContactForm() {
         <div className="mb-5 justify-center md:justify-start items-center text-center md:text-start md:space-x-5 flex flex-col md:flex-row">
           <ReCAPTCHA
             ref={captcha}
-            sitekey={"6LePkCsqAAAAAHL8yq08nc91pFRw_nix5OR-qRr0"}
+            sitekey={keyCaptcha}
             onChange={onChangeCaptcha}
           />
           <span
