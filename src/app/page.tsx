@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import '../ui/global.css';
 import Image from 'next/image';
 import SocialBar from './components/socialBar/Social';
@@ -8,80 +9,13 @@ import CucrriculumButton from './components/CurriculumButton/CurriculumButton';
 import Carousel from './components/carousel/CarouselReact';
 import ContactForm from './components/ContactForm/ContactForm';
 import TecnologiasSection from './components/tecnologias/TecnologiasSection';
+import CanvaCometa from './components/Cometas/CanvaCometa';
 
 export default function Home() {
-  // const elementosParaCometas = ['1', '2', '3', '4', '5', '6', '7', '8'];
-  // const cometas = [];
-  // const elementosParaCometas2 = ['1', '2', '3', '4', '5', '6', '7', '8'];
-  // const cometas2 = [];
-
-  // for (let i = 1; i < elementosParaCometas.length; i++) {
-  //   setTimeout(() => {
-  //   }, 1000);
-  //   cometas.push(
-  //     <div className={`bird b${i}`}>
-  //       <div className="body"></div>
-  //     </div>
-  //   );
-  // }
-  // for (let i = 1; i < elementosParaCometas2.length; i++) {
-  //   cometas2.push(
-  //     <div className={`bird2 a${i}`}>
-  //       <div className="body2"></div>
-  //     </div>,
-  //   );
-  // }
-
-// const canvas = document.getElementById('canvas');
-// const ctx = canvas.getContext('2d');
-
-// canvas.width = window.innerWidth;
-// canvas.height = window.innerHeight;
-
-// const comets = [];
-// const numComets = 10;
-
-// for (let i = 0; i < numComets; i++) {
-//     comets.push({
-//         x: Math.random() * canvas.width,
-//         y: Math.random() * canvas.height,
-//         speedX: (Math.random() - 0.5) * 2,
-//         speedY: Math.random() * 2 + 1
-//     });
-// }
-
-// function drawComet(comet) {
-//     ctx.beginPath();
-//     ctx.arc(comet.x, comet.y, 5, 0, Math.PI * 2);
-//     ctx.fillStyle = 'white';
-//     ctx.fill();
-// }
-
-// function animate() {
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-//     comets.forEach(comet => {
-//         drawComet(comet);
-//         comet.x += comet.speedX;
-//         comet.y += comet.speedY;
-
-//         // Reset if comet goes off screen
-//         if (comet.y > canvas.height) {
-//             comet.x = Math.random() * canvas.width;
-//             comet.y = -10;
-//         }
-//     });
-
-//     requestAnimationFrame(animate);
-// }
-
   return (
     <header className="w-full flex flex-col text-white ">
-      <section id='CometasDeFondo'>
-        {/* <div className="birds front ">{cometas}</div>
-        <div className="birds2 front2 ">{cometas2}</div> */}
-      </section>
-      <section id='HeadSection'>
+        <CanvaCometa />
+      <section id="HeadSection">
         <div className=" mx-auto flex md:flex-row flex-col-reverse mb-20 mt-20 md:mt-28 lg:mt-36 md:space-x-0 lg:space-x-20 w-full items-center justify-center">
           <div className="flex flex-col items-center max-w-xl">
             <div className="flex justify-center">
@@ -96,13 +30,14 @@ export default function Home() {
                 ¡Hola! Soy Matías Tari, un desarrollador web Full Stack con una
                 sólida experiencia en diversas tecnologías. <br />
                 Manejo{' '}
-                <a href='#tecnologias'>
+                <a href="#tecnologias">
                   <p className=" text-sky-600 animate-pulse text-tecno">
                     estas tecnología
                   </p>
                 </a>{' '}
                 como si fueran extensiones de mi propio ser. Si hay un bug, lo
-                encuentro; si hay un diseño, lo mejoro; y si hay café, lo bebo. ☕️
+                encuentro; si hay un diseño, lo mejoro; y si hay café, lo bebo.
+                ☕️
               </div>
               <div></div>
             </div>
@@ -113,20 +48,20 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id='SocialBar'>
+      <section id="SocialBar">
         <SocialBar />
       </section>
-      <section id='CarouselDeImagenes'>
+      <section id="CarouselDeImagenes">
         <div className="pt-20 flex justify-center">
           <Carousel />
         </div>
       </section>
-      <section id='tecnologias'>
-        <div className='w-full items-center pb-10'>
+      <section id="tecnologias">
+        <div className="w-full items-center pb-10">
           <TecnologiasSection />
         </div>
       </section>
-      <section id='formularioDeContacto'>
+      <section id="formularioDeContacto">
         <div className="pt-10 sm:pt-5 flex justify-center flex-col text-center ">
           <h1 className="text-2xl md:text-4xl pb-14">
             Contactame para futuros proyectos
@@ -136,4 +71,4 @@ export default function Home() {
       </section>
     </header>
   );
-};
+}
