@@ -11,7 +11,7 @@ function Gmail() {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
-      class="icon icon-tabler icons-tabler-outline icon-tabler-mail w-5 h-5 "
+      className="icon icon-tabler icons-tabler-outline icon-tabler-mail w-5 h-5 "
       viewBox="0 0 24 24"
     >
       <path stroke="none" d="M0 0h24v24H0z"></path>
