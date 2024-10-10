@@ -16,33 +16,35 @@ export default function Carousel() {
     {
       href: 'https://trendy-web-lemon.vercel.app/',
       img: '/TrendyShop.png',
+      id: 1,
     },
     {
       href: 'https://gastify-cloud.vercel.app/',
       img: '/GastifyPage.png',
+      id: 2,
     },
     {
       href: 'https://abogado-page.vercel.app/',
       img: '/abogadoPage.png',
+      id: 3,
     },
     {
       href: 'https://justo-blush.vercel.app/',
       img: '/EcconomyPage.png',
+      id: 4,
     },
   ];
 
   return (
     <section className=" w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-full">
       <div className="items-center flex flex-col text-center pb-10 ">
-        <h2 className="text-2xl md:text-4xl text-white p-3">Proyectos</h2>
-        <h5 className="text-white">Realizados</h5>
+        <h2 className="text-2xl md:text-4xl text-white p-3">Mis proyectos</h2>
       </div>
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
         loop={true}
-        onAutoplay={true}
         slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 0,
@@ -61,24 +63,24 @@ export default function Carousel() {
       >
         {slides.map((slide) => {
           return (
-            <>
-              <SwiperSlide className="max-w-[14rem] max-h-[0px] sm:max-w-[30rem] relative items-center justify-center mt-10">
-                <div className="w-96 h-52 ">
-                  <div className="">
-                    <a href={slide.href}>
-                      <Image
-                        width={480}
-                        height={480}
-                        src={slide.img}
-                        className="max-w-[14rem] rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-[30rem] transition duration-700 "
-                        alt="Slides de proyectos"
-                      />
-                    </a>
-                  </div>
-                  <div></div>
+            <SwiperSlide
+              key={slide.id}
+              className="max-w-[14rem] w-auto h-auto max-h-[0px] sm:max-w-[30rem] relative items-center justify-center mt-10"
+            >
+              <div className="w-96 h-52 ">
+                <div className="">
+                  <a href={slide.href}>
+                    <Image
+                      width={480}
+                      height={480}
+                      src={slide.img}
+                      className="max-w-[14rem] w-auto h-auto rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-[30rem] transition duration-700 "
+                      alt="Slides de proyectos"
+                    />
+                  </a>
                 </div>
-              </SwiperSlide>
-            </>
+              </div>
+            </SwiperSlide>
           );
         })}
       </Swiper>

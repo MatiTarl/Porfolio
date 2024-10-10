@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import '../ui/global.css';
 import Image from 'next/image';
 import SocialBar from './components/socialBar/Social';
@@ -14,7 +13,7 @@ import CanvaCometa from './components/Cometas/CanvaCometa';
 export default function Home() {
   return (
     <header className="w-full flex flex-col text-white ">
-        <CanvaCometa />
+      <CanvaCometa />
       <section id="HeadSection">
         <div className=" mx-auto flex md:flex-row flex-col-reverse mb-20 mt-20 md:mt-28 lg:mt-36 md:space-x-0 lg:space-x-20 w-full items-center justify-center">
           <div className="flex flex-col items-center max-w-xl">
@@ -28,18 +27,16 @@ export default function Home() {
               <p className="text-xl">Bienvenido/a!</p>
               <div className="">
                 ¡Hola! Soy Matías Tari, un desarrollador web Full Stack con una
-                sólida experiencia en diversas tecnologías. <br />
-                Manejo{' '}
-                <a href="#tecnologias">
-                  <p className=" text-sky-600 animate-pulse text-tecno">
-                    estas tecnología
-                  </p>
-                </a>{' '}
+                sólida experiencia en diversas{' '}
+                <a
+                  href="#tecnologias"
+                  className=" text-sky-600 animate-pulse text-tecno"
+                >
+                  tecnologías {' '}
+                </a>
                 como si fueran extensiones de mi propio ser. Si hay un bug, lo
-                encuentro; si hay un diseño, lo mejoro; y si hay café, lo bebo.
-                ☕️
+                encuentro; y si hay un diseño, lo mejoro.
               </div>
-              <div></div>
             </div>
             <CucrriculumButton />
           </div>

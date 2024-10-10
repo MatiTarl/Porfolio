@@ -4,7 +4,7 @@ export default function JavaScript(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      ariaLabel="JavaScript"
+      aria-label="JavaScript"
       viewBox="0 0 512 512"
       {...props}
     >

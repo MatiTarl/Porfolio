@@ -11,16 +11,16 @@ import Tailwind from '../../../ui/tecnologias/Tailwind';
 
 export default function TecnologiasSection() {
   const svgs = [
-    Css,
-    Express,
-    Html,
-    NodeJs,
-    JavaScript,
-    Postgress,
-    Redux,
-    Sequelize,
-    Tailwind,
-    React,
+    { svg: Css, id: 1 },
+    { svg: Express, id: 2 },
+    { svg: Html, id: 3 },
+    { svg: NodeJs, id: 4 },
+    { svg: JavaScript, id: 5 },
+    { svg: Postgress, id: 6 },
+    { svg: Redux, id: 7 },
+    { svg: Sequelize, id: 8 },
+    { svg: Tailwind, id: 9 },
+    { svg: React, id: 10 },
   ];
   return (
     <main className="items-center justify-center flex flex-col px-2">
@@ -28,18 +28,17 @@ export default function TecnologiasSection() {
       <div className="w-full grid gap-2 grid-cols-3 md:grid-cols-5 lg:grid-cols-6 2xl:grid-cols-10 items-center justify-items-center min-h-32 lg:min-h-52">
         {svgs.map((Svg) => {
           return (
-            <>
-              <div
-                className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 2xl:w-24 2xl:h-24 
+            <div
+              key={Svg.id}
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 2xl:w-24 2xl:h-24 
                "
-              >
-                <Svg
-                  style={{
-                    filter: 'drop-shadow(0px 0px 5px rgba(252, 252, 252, 0.5))',
-                  }}
-                />
-              </div>
-            </>
+            >
+              <Svg.svg
+                style={{
+                  filter: 'drop-shadow(0px 0px 5px rgba(252, 252, 252, 0.5))',
+                }}
+              />
+            </div>
           );
         })}
       </div>
