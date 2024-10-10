@@ -33,6 +33,16 @@ export default function Carousel() {
       img: '/EcconomyPage.png',
       id: 4,
     },
+    {
+      href: 'https://porfolio-matitarls-projects.vercel.app/',
+      img: '/PorfolioPage.png',
+      id: 5,
+    },
+    {
+      href: 'https://ingcontecnica.com/',
+      img: '/IngenieriaPage.png',
+      id: 6,
+    },
   ];
 
   return (
@@ -70,9 +80,7 @@ export default function Carousel() {
               <div className="w-96 h-52 ">
                 <div className="">
                   <a href={slide.href}>
-                    <Image
-                      width={480}
-                      height={480}
+                    <img
                       src={slide.img}
                       className="max-w-[14rem] w-auto h-auto rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-[30rem] transition duration-700 "
                       alt="Slides de proyectos"
