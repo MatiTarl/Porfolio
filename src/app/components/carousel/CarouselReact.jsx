@@ -46,7 +46,7 @@ export default function Carousel() {
   ];
 
   return (
-    <section className=" w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-full">
+    <section className=" w-full sm:max-w-full md:max-w-full lg:max-w-full">
       <div className="items-center flex flex-col text-center pb-10 ">
         <h2 className="text-2xl md:text-4xl text-white p-3">Mis proyectos</h2>
       </div>
@@ -75,14 +75,14 @@ export default function Carousel() {
           return (
             <SwiperSlide
               key={slide.id}
-              className="max-w-[14rem] w-auto h-auto max-h-[0px] sm:max-w-[30rem] relative items-center justify-center mt-10"
+              className="max-w-56 w-auto h-auto max-h-0 sm:max-w-120 relative items-center justify-center mt-10"
             >
               <div className="w-96 h-52 ">
                 <div className="">
                   <a href={slide.href}>
                     <img
                       src={slide.img}
-                      className="max-w-[14rem] w-auto h-auto rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-[30rem] transition duration-700 "
+                      className="max-w-56 w-auto h-auto rounded-xl hover:animate-desplazarArriba animate-volverAbajo sm:max-w-120 transition duration-700 "
                       alt="Slides de proyectos"
                     />
                   </a>

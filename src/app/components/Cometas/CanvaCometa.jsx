@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 
 export default function CanvaCometa() {
@@ -65,6 +67,8 @@ export default function CanvaCometa() {
       }
     }
 
+    let frameId;
+
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el canvas
       comets.forEach((comet) => {
@@ -75,12 +79,15 @@ export default function CanvaCometa() {
         updateCometX(comet);
         drawComet(comet);
       });
-      requestAnimationFrame(animate); // Siguiente frame
+      frameId = requestAnimationFrame(animate); // Siguiente frame
     }
 
     animate(); // Iniciar la animación
 
-    return () => window.removeEventListener('resize', resizeCanvas);
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener('resize', resizeCanvas);
+    };
   }, []);
 
   return (

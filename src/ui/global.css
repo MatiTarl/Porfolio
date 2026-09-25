@@ -1,6 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --animate-desplazarArriba: desplazarArriba 0.2s ease-in-out forwards;
+  --animate-volverAbajo: volverAbajo 0.2s ease-in-out forwards;
+
+  @keyframes desplazarArriba {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-5%);
+    }
+  }
+  @keyframes volverAbajo {
+    0% {
+      transform: translateY(-5%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
 
 ::-webkit-scrollbar {
   display: none;

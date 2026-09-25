@@ -1,18 +1,14 @@
-'use client';
-
-import '../ui/global.css';
 import Image from 'next/image';
 import SocialBar from './components/socialBar/Social';
 import MatiImage from '../ui/images/MatiImageSinFondo1.png';
 import CucrriculumButton from './components/CurriculumButton/CurriculumButton';
 import Carousel from './components/carousel/CarouselReact';
-import ContactForm from './components/ContactForm/ContactForm';
 import TecnologiasSection from './components/tecnologias/TecnologiasSection';
 import CanvaCometa from './components/Cometas/CanvaCometa';
 
 export default function Home() {
   return (
-    <header className="w-full flex flex-col text-white ">
+    <main className="w-full flex flex-col text-white ">
       <CanvaCometa />
       <section id="HeadSection">
         <div className=" mx-auto flex md:flex-row flex-col-reverse mb-20 mt-20 md:mt-28 lg:mt-36 md:space-x-0 lg:space-x-20 w-full items-center justify-center">
@@ -58,14 +54,22 @@ export default function Home() {
           <TecnologiasSection />
         </div>
       </section>
-      <section id="formularioDeContacto">
-        <div className="pt-10 sm:pt-5 flex justify-center flex-col text-center ">
-          <h1 className="text-2xl md:text-4xl pb-14">
+      <section id="contacto">
+        <div className="pt-10 sm:pt-5 flex justify-center flex-col items-center text-center px-4">
+          <h2 className="text-2xl md:text-4xl pb-6">
             Contactame para futuros proyectos
-          </h1>
-          <ContactForm />
+          </h2>
+          <p className="max-w-xl pb-8 text-zinc-300">
+            ¿Tenés una idea o un proyecto en mente? Escribime y lo charlamos.
+          </p>
+          <a
+            href="mailto:Matiastari@outlook.com.ar"
+            className="rounded-3xl bg-zinc-200 px-6 py-2.5 text-slate-950 transition-all duration-200 hover:bg-zinc-300"
+          >
+            Enviar un mail
+          </a>
         </div>
       </section>
-    </header>
+    </main>
   );
 }
