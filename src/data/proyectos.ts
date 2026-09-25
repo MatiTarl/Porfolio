@@ -194,4 +194,100 @@ export const proyectos: Proyecto[] = [
     demo: 'https://delivery-page-khaki.vercel.app',
     repo: 'https://github.com/MatiTarl/Delivery-page-',
   },
+  {
+    id: 'el-buen-raviol',
+    categoria: 'sistema',
+    titulo: 'El Buen Raviol',
+    tipo: 'Sistema de pedidos online',
+    resumen:
+      'Tienda online con delivery y panel de administración para una casa de pastas.',
+    descripcion:
+      'Sistema de pedidos online para una casa de pastas de Mendoza. Los clientes arman su pedido en la tienda, eligen la dirección de entrega en el mapa, pagan con Mercado Pago y siguen el estado del pedido; el local recibe cada pedido nuevo en su panel de administración.',
+    caracteristicas: [
+      'Catálogo por categorías y carrito de compras',
+      'Delivery con selección de dirección en el mapa y costo de envío calculado por distancia',
+      'Pago online con Mercado Pago y seguimiento del estado del pedido',
+      'Comprobante del pedido descargable en PDF',
+      'Panel por sucursal para gestionar productos, categorías y pedidos',
+    ],
+    tecnologias: ['Next.js', 'TypeScript', 'Tailwind', 'Mercado Pago'],
+    partes: [
+      {
+        nombre: 'Tienda online',
+        descripcion:
+          'Sitio donde los clientes arman y pagan su pedido. Usa Google Maps para buscar la dirección, OpenRouteService para calcular la distancia de envío y Mercado Pago para el cobro. Muestra el horario de atención y recuerda el pedido pendiente mientras se completa el pago.',
+        tecnologias: [
+          'Next.js',
+          'TypeScript',
+          'Tailwind',
+          'shadcn/ui',
+          'Google Maps',
+          'Leaflet',
+          'Mercado Pago',
+        ],
+        propia: true,
+      },
+      {
+        nombre: 'Panel de administración',
+        descripcion:
+          'Dashboard por sucursal para cargar y editar productos y categorías, y seguir los pedidos por estado (pendiente, en preparación, entregado o cancelado), con aviso sonoro cuando entra un pedido nuevo.',
+        tecnologias: ['Next.js', 'TypeScript', 'Tailwind', 'shadcn/ui', 'v0'],
+        propia: true,
+      },
+      {
+        nombre: 'Backend',
+        descripcion:
+          'API REST que gestiona productos, pedidos y pagos, con base de datos PostgreSQL, imágenes en Cloudinary e integración con Mercado Pago.',
+        tecnologias: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+        propia: false,
+      },
+    ],
+    privado: true,
+  },
+  {
+    id: 'don-inodoro',
+    categoria: 'sistema',
+    titulo: 'Don Inodoro',
+    tipo: 'Sistema de gestión comercial',
+    resumen:
+      'Sistema de gestión para un comercio de artículos de limpieza con varias sucursales.',
+    descripcion:
+      'Sistema de gestión comercial para un negocio de artículos de limpieza con varias sucursales: punto de venta, caja, inventario, proveedores y reportes, con usuarios por rol y alertas en tiempo real.',
+    caracteristicas: [
+      'Punto de venta con ticket imprimible',
+      'Apertura, movimientos y cierre de caja con arqueo',
+      'Control de inventario: ingreso de mercadería y ajustes manuales',
+      'Gestión de productos, categorías, proveedores y métodos de pago',
+      'Historial de ventas y lista de precios para imprimir',
+      'Usuarios por rol (administrador y vendedor) en varias sucursales',
+      'Alertas de stock bajo en tiempo real',
+      'Buscador global y tutorial guiado para nuevos usuarios',
+    ],
+    tecnologias: ['React', 'TypeScript', 'Vite', 'Tailwind'],
+    partes: [
+      {
+        nombre: 'Frontend',
+        descripcion:
+          'Toda la interfaz del sistema: punto de venta, caja, inventario, reportes y configuración. Se conecta a la API REST y recibe las alertas en tiempo real por WebSocket.',
+        tecnologias: [
+          'React',
+          'TypeScript',
+          'Vite',
+          'Tailwind',
+          'React Router',
+          'STOMP / SockJS',
+        ],
+        propia: true,
+      },
+      {
+        nombre: 'Backend',
+        descripcion:
+          'API REST y servidor WebSocket que manejan los datos, la autenticación y las alertas del sistema.',
+        tecnologias: [],
+        propia: false,
+      },
+    ],
+    imagen: '/DonInodoroPage.png',
+    privado: true,
+  },
 ];

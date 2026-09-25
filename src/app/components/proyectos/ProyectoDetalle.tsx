@@ -158,6 +158,8 @@ function ListaTecnologias({
   tecnologias: string[];
   chica?: boolean;
 }) {
+  if (tecnologias.length === 0) return null;
+
   return (
     <ul className="flex flex-wrap gap-2 pt-3">
       {tecnologias.map((tecnologia) => (
