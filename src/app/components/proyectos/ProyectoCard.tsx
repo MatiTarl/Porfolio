@@ -26,7 +26,7 @@ export default function ProyectoCard({
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         />
         <div className="absolute top-3 left-3">
-          <EstadoBadge online={Boolean(proyecto.demo)} />
+          <EstadoBadge proyecto={proyecto} />
         </div>
       </div>
       <h3 className="pt-4 text-xl">{proyecto.titulo}</h3>
@@ -50,13 +50,23 @@ export default function ProyectoCard({
   );
 }
 
-export function EstadoBadge({ online }: { online: boolean }) {
+const ESTADOS = {
+  online: { texto: 'Online', color: 'bg-green-500' },
+  privado: { texto: 'Privado', color: 'bg-sky-600' },
+  'sin-demo': { texto: 'Sin demo', color: 'bg-zinc-500' },
+};
+
+export function EstadoBadge({ proyecto }: { proyecto: Proyecto }) {
+  const estado = proyecto.demo
+    ? ESTADOS.online
+    : proyecto.privado
+      ? ESTADOS.privado
+      : ESTADOS['sin-demo'];
+
   return (
     <span className="flex w-fit items-center gap-1.5 rounded-3xl bg-black/75 px-2.5 py-1 text-xs text-white backdrop-blur-sm">
-      <span
-        className={`h-2 w-2 rounded-full ${online ? 'bg-green-500' : 'bg-zinc-500'}`}
-      />
-      {online ? 'Online' : 'Sin demo'}
+      <span className={`h-2 w-2 rounded-full ${estado.color}`} />
+      {estado.texto}
     </span>
   );
 }

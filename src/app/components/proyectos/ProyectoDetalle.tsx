@@ -43,7 +43,7 @@ export default function ProyectoDetalle({
             <div>
               <div className="flex items-center gap-2">
                 <p className="text-sm text-zinc-400">{proyecto.tipo}</p>
-                <EstadoBadge online={Boolean(proyecto.demo)} />
+                <EstadoBadge proyecto={proyecto} />
               </div>
               <h3
                 id="proyecto-detalle-titulo"
@@ -73,11 +73,18 @@ export default function ProyectoDetalle({
           )}
 
           <p className="text-zinc-200">{proyecto.descripcion}</p>
-          {!proyecto.demo && (
+          {proyecto.privado ? (
             <p className="pt-3 text-sm text-zinc-400">
-              Este proyecto no tiene una demo online en este momento
-              {proyecto.repo ? ', pero podés ver el código en GitHub.' : '.'}
+              Es un desarrollo privado para un cliente, por eso el código no es
+              público.
             </p>
+          ) : (
+            !proyecto.demo && (
+              <p className="pt-3 text-sm text-zinc-400">
+                Este proyecto no tiene una demo online en este momento
+                {proyecto.repo ? ', pero podés ver el código en GitHub.' : '.'}
+              </p>
+            )
           )}
 
           <h4 className="pt-6 pb-2 text-xl">Qué incluye</h4>
@@ -99,12 +106,12 @@ export default function ProyectoDetalle({
             ))}
           </ul>
 
-          {(proyecto.demo || proyecto.repo) && (
+          {(proyecto.demo || (proyecto.repo && !proyecto.privado)) && (
             <div className="flex flex-wrap gap-4 pt-8">
               {proyecto.demo && (
                 <BotonEnlace href={proyecto.demo}>Ver demo</BotonEnlace>
               )}
-              {proyecto.repo && (
+              {proyecto.repo && !proyecto.privado && (
                 <BotonEnlace href={proyecto.repo}>
                   <Github />
                   Ver código

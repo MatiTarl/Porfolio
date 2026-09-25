@@ -1,5 +1,34 @@
+export type CategoriaId = 'landing' | 'integracion' | 'sistema';
+
+export type Categoria = {
+  id: CategoriaId;
+  titulo: string;
+  descripcion: string;
+};
+
+// Orden en el que se muestran las filas. Una categoría sin proyectos no se muestra.
+export const categorias: Categoria[] = [
+  {
+    id: 'landing',
+    titulo: 'Landing pages',
+    descripcion: 'Sitios institucionales y páginas de producto para negocios.',
+  },
+  {
+    id: 'integracion',
+    titulo: 'Integraciones',
+    descripcion: 'Conexiones entre sistemas, APIs y servicios externos.',
+  },
+  {
+    id: 'sistema',
+    titulo: 'Sistemas a medida',
+    descripcion:
+      'Aplicaciones desarrolladas para clientes. El código es privado, pero acá está lo que hicimos.',
+  },
+];
+
 export type Proyecto = {
   id: string;
+  categoria: CategoriaId;
   titulo: string;
   tipo: string;
   resumen: string;
@@ -9,14 +38,17 @@ export type Proyecto = {
   imagen?: string;
   demo?: string;
   repo?: string;
+  // Proyecto de cliente con código privado: no se muestra el botón de código
+  privado?: boolean;
 };
 
 // Para sumar un proyecto nuevo alcanza con agregar un objeto a esta lista.
-// Si no tiene `demo`, la tarjeta se muestra como "Sin demo" y el detalle
-// explica de qué se trata.
+// Si no tiene `demo`, la tarjeta se muestra como "Sin demo" (o "Privado")
+// y el detalle explica de qué se trata.
 export const proyectos: Proyecto[] = [
   {
     id: 'juegos-inflables',
+    categoria: 'landing',
     titulo: 'Juegos Inflables',
     tipo: 'Sitio para cliente',
     resumen:
@@ -36,6 +68,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'gastify-cloud',
+    categoria: 'landing',
     titulo: 'Gastify Cloud',
     tipo: 'Landing de producto',
     resumen:
@@ -55,6 +88,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'ecommy',
+    categoria: 'landing',
     titulo: 'eCommy Store',
     tipo: 'Landing de producto',
     resumen:
@@ -73,24 +107,8 @@ export const proyectos: Proyecto[] = [
     repo: 'https://github.com/MatiTarl/Justo',
   },
   {
-    id: 'trendy-shop',
-    titulo: 'Trendy Shop',
-    tipo: 'E-commerce',
-    resumen: 'Tienda de ropa y accesorios con categorías, carrito y usuarios.',
-    descripcion:
-      'Frontend de un e-commerce de moda. Organiza el catálogo por categorías y cuenta con carrito, inicio de sesión y suscripción al newsletter.',
-    caracteristicas: [
-      'Catálogo por categorías: prendas, accesorios, calzado y bolsos',
-      'Carrito de compras',
-      'Inicio de sesión y registro de usuarios',
-      'Suscripción al boletín de novedades',
-    ],
-    tecnologias: ['React', 'Vite', 'CSS'],
-    imagen: '/TrendyShop.png',
-    demo: 'https://trendy-web-lemon.vercel.app',
-  },
-  {
     id: 'con-tecnica',
+    categoria: 'landing',
     titulo: 'Con-Técnica',
     tipo: 'Sitio para cliente',
     resumen: 'Sitio de una empresa de servicios de electricidad industrial.',
@@ -108,6 +126,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'fernandes-heine',
+    categoria: 'landing',
     titulo: 'Fernandes & Heine',
     tipo: 'Sitio para cliente',
     resumen: 'Sitio de un estudio jurídico de derecho internacional privado.',
@@ -126,6 +145,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'hubdark-kitchen',
+    categoria: 'landing',
     titulo: 'HubDark Kitchen',
     tipo: 'Landing',
     resumen:
@@ -145,6 +165,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'mibarrio-delivery',
+    categoria: 'landing',
     titulo: 'MiBarrio Delivery',
     tipo: 'Landing',
     resumen: 'Landing de un servicio de compras de supermercado a domicilio.',
@@ -160,61 +181,5 @@ export const proyectos: Proyecto[] = [
     imagen: '/MiBarrioPage.png',
     demo: 'https://delivery-page-khaki.vercel.app',
     repo: 'https://github.com/MatiTarl/Delivery-page-',
-  },
-  {
-    id: 'pi-pokemon',
-    titulo: 'Pokémon App',
-    tipo: 'Full Stack',
-    resumen: 'SPA full stack para buscar, filtrar y crear pokemones.',
-    descripcion:
-      'Proyecto individual del bootcamp de Henry. Una Single Page Application que consume la PokeAPI y la combina con una base de datos propia, con un backend en Express que expone las rutas para consultar y crear pokemones.',
-    caracteristicas: [
-      'Búsqueda de pokemones por nombre',
-      'Filtros y ordenamiento de resultados',
-      'Vista de detalle de cada pokemon',
-      'Formulario para crear pokemones y guardarlos en la base de datos',
-      'API REST propia: /pokemons, /pokemons/:id y /types',
-    ],
-    tecnologias: [
-      'React',
-      'Redux',
-      'Node.js',
-      'Express',
-      'Sequelize',
-      'PostgreSQL',
-    ],
-    repo: 'https://github.com/MatiTarl/PI-Pokemon',
-  },
-  {
-    id: 'rick-and-morty',
-    titulo: 'Rick and Morty App',
-    tipo: 'Full Stack',
-    resumen:
-      'App para explorar personajes de Rick and Morty y guardar favoritos.',
-    descripcion:
-      'Aplicación desarrollada en el bootcamp de Henry, con cliente en React y servidor en Express. Permite buscar personajes, ver su detalle y armar una lista de favoritos, con un login simple.',
-    caracteristicas: [
-      'Búsqueda de personajes y vista de detalle',
-      'Lista de favoritos manejada con Redux',
-      'Login con validación de formulario',
-      'Servidor Express con tests en Jest y Supertest',
-    ],
-    tecnologias: ['React', 'Redux', 'Node.js', 'Express', 'Jest'],
-    repo: 'https://github.com/MatiTarl/Rick_and_Morty_FT38b',
-  },
-  {
-    id: 'nest-tareas',
-    titulo: 'API de Tareas',
-    tipo: 'Backend',
-    resumen: 'API REST de tareas con NestJS, TypeORM y PostgreSQL.',
-    descripcion:
-      'API REST para gestionar tareas, construida con NestJS siguiendo su estructura de módulos, controladores y servicios, con persistencia en PostgreSQL a través de TypeORM.',
-    caracteristicas: [
-      'CRUD completo: listar, crear, actualizar y eliminar tareas',
-      'Validación de datos con DTOs y class-validator',
-      'Entidades y conexión a PostgreSQL con TypeORM',
-    ],
-    tecnologias: ['NestJS', 'TypeScript', 'TypeORM', 'PostgreSQL'],
-    repo: 'https://github.com/MatiTarl/NestJs-TypeORM',
   },
 ];
