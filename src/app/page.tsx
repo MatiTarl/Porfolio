@@ -2,7 +2,7 @@ import Image from 'next/image';
 import SocialBar from './components/socialBar/Social';
 import MatiImage from '../ui/images/MatiImageSinFondo1.png';
 import CucrriculumButton from './components/CurriculumButton/CurriculumButton';
-import Carousel from './components/carousel/CarouselReact';
+import ProyectosSection from './components/proyectos/ProyectosSection';
 import TecnologiasSection from './components/tecnologias/TecnologiasSection';
 import CanvaCometa from './components/Cometas/CanvaCometa';
 
@@ -28,7 +28,7 @@ export default function Home() {
                   href="#tecnologias"
                   className=" text-sky-600 animate-pulse text-tecno"
                 >
-                  tecnologías {' '}
+                  tecnologías{' '}
                 </a>
                 como si fueran extensiones de mi propio ser. Si hay un bug, lo
                 encuentro; y si hay un diseño, lo mejoro.
@@ -44,9 +44,9 @@ export default function Home() {
       <section id="SocialBar">
         <SocialBar />
       </section>
-      <section id="CarouselDeImagenes">
-        <div className="pt-20 flex justify-center">
-          <Carousel />
+      <section id="proyectos">
+        <div className="pt-20 pb-20 flex justify-center">
+          <ProyectosSection />
         </div>
       </section>
       <section id="tecnologias">

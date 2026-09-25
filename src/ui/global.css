@@ -1,25 +1,23 @@
 @import 'tailwindcss';
 
 @theme {
-  --animate-desplazarArriba: desplazarArriba 0.2s ease-in-out forwards;
-  --animate-volverAbajo: volverAbajo 0.2s ease-in-out forwards;
+  --animate-aparecer: aparecer 0.25s ease-out;
 
-  @keyframes desplazarArriba {
+  @keyframes aparecer {
     0% {
-      transform: translateY(0);
+      opacity: 0;
+      transform: translateY(2%);
     }
     100% {
-      transform: translateY(-5%);
-    }
-  }
-  @keyframes volverAbajo {
-    0% {
-      transform: translateY(-5%);
-    }
-    100% {
+      opacity: 1;
       transform: translateY(0);
     }
   }
+}
+
+/* Evita que la página scrollee detrás del detalle de un proyecto */
+html:has(dialog[open]) {
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
