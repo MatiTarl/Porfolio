@@ -26,6 +26,16 @@ export const categorias: Categoria[] = [
   },
 ];
 
+// Un proyecto puede estar formado por varias partes (sitio, dashboard, backend...).
+// No todas tienen que ser propias: `propia: false` marca lo que hizo otra
+// persona o equipo, para mostrar el proyecto completo sin atribuírselo.
+export type Parte = {
+  nombre: string;
+  descripcion: string;
+  tecnologias: string[];
+  propia: boolean;
+};
+
 export type Proyecto = {
   id: string;
   categoria: CategoriaId;
@@ -34,7 +44,9 @@ export type Proyecto = {
   resumen: string;
   descripcion: string;
   caracteristicas: string[];
+  // En proyectos con partes, las tecnologías de las partes propias (se muestran en la tarjeta)
   tecnologias: string[];
+  partes?: Parte[];
   imagen?: string;
   demo?: string;
   repo?: string;

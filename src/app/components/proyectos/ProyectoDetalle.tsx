@@ -94,17 +94,43 @@ export default function ProyectoDetalle({
             ))}
           </ul>
 
-          <h4 className="pt-6 pb-3 text-xl">Tecnologías</h4>
-          <ul className="flex flex-wrap gap-2">
-            {proyecto.tecnologias.map((tecnologia) => (
-              <li
-                key={tecnologia}
-                className="rounded-3xl bg-zinc-200 px-3 py-1 text-sm text-slate-950"
-              >
-                {tecnologia}
-              </li>
-            ))}
-          </ul>
+          {proyecto.partes ? (
+            <>
+              <h4 className="pt-6 pb-3 text-xl">Partes del proyecto</h4>
+              <ul className="space-y-4">
+                {proyecto.partes.map((parte) => (
+                  <li
+                    key={parte.nombre}
+                    className="rounded-xl border border-zinc-800 p-4"
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h5 className="text-lg">{parte.nombre}</h5>
+                      <span
+                        className={
+                          parte.propia
+                            ? 'rounded-3xl bg-zinc-200 px-2.5 py-0.5 text-xs text-slate-950'
+                            : 'rounded-3xl border border-zinc-700 px-2.5 py-0.5 text-xs text-zinc-400'
+                        }
+                      >
+                        {parte.propia
+                          ? 'Desarrollado por mí'
+                          : 'Desarrollado por otro equipo'}
+                      </span>
+                    </div>
+                    <p className="pt-2 text-sm text-zinc-300">
+                      {parte.descripcion}
+                    </p>
+                    <ListaTecnologias tecnologias={parte.tecnologias} chica />
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <>
+              <h4 className="pt-6 text-xl">Tecnologías</h4>
+              <ListaTecnologias tecnologias={proyecto.tecnologias} />
+            </>
+          )}
 
           {(proyecto.demo || (proyecto.repo && !proyecto.privado)) && (
             <div className="flex flex-wrap gap-4 pt-8">
@@ -122,6 +148,27 @@ export default function ProyectoDetalle({
         </div>
       )}
     </dialog>
+  );
+}
+
+function ListaTecnologias({
+  tecnologias,
+  chica = false,
+}: {
+  tecnologias: string[];
+  chica?: boolean;
+}) {
+  return (
+    <ul className="flex flex-wrap gap-2 pt-3">
+      {tecnologias.map((tecnologia) => (
+        <li
+          key={tecnologia}
+          className={`rounded-3xl bg-zinc-200 text-slate-950 ${chica ? 'px-2.5 py-0.5 text-xs' : 'px-3 py-1 text-sm'}`}
+        >
+          {tecnologia}
+        </li>
+      ))}
+    </ul>
   );
 }
 
