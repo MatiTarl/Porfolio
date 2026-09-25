@@ -195,53 +195,74 @@ export const proyectos: Proyecto[] = [
     repo: 'https://github.com/MatiTarl/Delivery-page-',
   },
   {
-    id: 'el-buen-raviol',
+    id: 'dashboard-gastronomico',
     categoria: 'sistema',
-    titulo: 'El Buen Raviol',
-    tipo: 'Sistema de pedidos online',
+    titulo: 'Dashboard gastronómico',
+    tipo: 'Plataforma de pedidos online',
     resumen:
-      'Tienda online con delivery y panel de administración para una casa de pastas.',
+      'Tienda online con delivery y panel de administración para un negocio gastronómico.',
     descripcion:
-      'Sistema de pedidos online para una casa de pastas de Mendoza. Los clientes arman su pedido en la tienda, eligen la dirección de entrega en el mapa, pagan con Mercado Pago y siguen el estado del pedido; el local recibe cada pedido nuevo en su panel de administración.',
+      'Plataforma de pedidos online para un negocio de pastas artesanales: los clientes compran desde la tienda, pagan con Mercado Pago y siguen su pedido, y el negocio opera el día a día desde un panel de administración multi-sucursal. La captura corresponde a la versión demo, con marca y datos ficticios.',
     caracteristicas: [
-      'Catálogo por categorías y carrito de compras',
-      'Delivery con selección de dirección en el mapa y costo de envío calculado por distancia',
-      'Pago online con Mercado Pago y seguimiento del estado del pedido',
-      'Comprobante del pedido descargable en PDF',
-      'Panel por sucursal para gestionar productos, categorías y pedidos',
+      'Catálogo por categorías con buscador y carrito persistente',
+      'Checkout con validación de datos y costo de envío calculado por distancia',
+      'Pago con Mercado Pago y seguimiento del estado del pedido',
+      'Recibo del pedido descargable en PDF',
+      'Panel multi-sucursal para gestionar productos, categorías y pedidos',
+      'Alarma sonora en el panel cuando entra un pedido pagado',
     ],
     tecnologias: ['Next.js', 'TypeScript', 'Tailwind', 'Mercado Pago'],
     partes: [
       {
         nombre: 'Tienda online',
         descripcion:
-          'Sitio donde los clientes arman y pagan su pedido. Usa Google Maps para buscar la dirección, OpenRouteService para calcular la distancia de envío y Mercado Pago para el cobro. Muestra el horario de atención y recuerda el pedido pendiente mientras se completa el pago.',
+          'Sitio donde los clientes arman y pagan su pedido: catálogo filtrable, carrito persistente, checkout validado, pago con Mercado Pago (aprobado, pendiente o rechazado, con opción de reintentar), recibo en PDF, banner para retomar pedidos sin pagar e indicador de horario de atención.',
         tecnologias: [
           'Next.js',
+          'React',
           'TypeScript',
           'Tailwind',
           'shadcn/ui',
-          'Google Maps',
-          'Leaflet',
           'Mercado Pago',
+          'jsPDF',
         ],
         propia: true,
       },
       {
         nombre: 'Panel de administración',
         descripcion:
-          'Dashboard por sucursal para cargar y editar productos y categorías, y seguir los pedidos por estado (pendiente, en preparación, entregado o cancelado), con aviso sonoro cuando entra un pedido nuevo.',
-        tecnologias: ['Next.js', 'TypeScript', 'Tailwind', 'shadcn/ui', 'v0'],
+          'Dashboard con selección de sucursal para dar de alta, editar y habilitar productos y categorías (con carga de imágenes), y gestionar pedidos con búsqueda, detalle completo y cambio de estado. Suena una alarma cuando se aprueba el pago de un pedido nuevo.',
+        tecnologias: [
+          'Next.js',
+          'React',
+          'TypeScript',
+          'Tailwind',
+          'shadcn/ui',
+        ],
         propia: true,
       },
       {
         nombre: 'Backend',
         descripcion:
-          'API REST que gestiona productos, pedidos y pagos, con base de datos PostgreSQL, imágenes en Cloudinary e integración con Mercado Pago.',
-        tecnologias: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+          'API REST en capas que calcula precios y envíos en el servidor, crea las preferencias de pago y recibe el webhook de Mercado Pago para actualizar cada pedido. Guarda las imágenes en Cloudinary.',
+        tecnologias: [
+          'Java',
+          'Spring Boot',
+          'PostgreSQL',
+          'Mercado Pago',
+          'Docker',
+        ],
+        propia: false,
+      },
+      {
+        nombre: 'API mock para la demo',
+        descripcion:
+          'Servidor que replica el contrato de la API real con pagos simulados, para publicar la demo sin backend.',
+        tecnologias: ['Node.js', 'json-server'],
         propia: false,
       },
     ],
+    imagen: '/DashboardGastronomicoPage.png',
     privado: true,
   },
   {
