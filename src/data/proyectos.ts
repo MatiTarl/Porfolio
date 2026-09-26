@@ -34,6 +34,8 @@ export type Parte = {
   descripcion: string;
   tecnologias: string[];
   propia: boolean;
+  // Demo propia de esta parte, cuando el proyecto tiene más de una
+  demo?: string;
 };
 
 export type Proyecto = {
@@ -202,7 +204,7 @@ export const proyectos: Proyecto[] = [
     resumen:
       'Tienda online con delivery y panel de administración para un negocio gastronómico.',
     descripcion:
-      'Plataforma de pedidos online para un negocio de pastas artesanales: los clientes compran desde la tienda, pagan con Mercado Pago y siguen su pedido, y el negocio opera el día a día desde un panel de administración multi-sucursal. La captura corresponde a la versión demo, con marca y datos ficticios.',
+      'Plataforma de pedidos online para un negocio de pastas artesanales: los clientes compran desde la tienda, pagan con Mercado Pago y siguen su pedido, y el negocio opera el día a día desde un panel de administración multi-sucursal. La demo usa una marca y datos ficticios, y el pago es simulado.',
     caracteristicas: [
       'Catálogo por categorías con buscador y carrito persistente',
       'Checkout con validación de datos y costo de envío calculado por distancia',
@@ -227,6 +229,7 @@ export const proyectos: Proyecto[] = [
           'jsPDF',
         ],
         propia: true,
+        demo: 'https://tienda-dun-six.vercel.app',
       },
       {
         nombre: 'Panel de administración',
@@ -240,6 +243,7 @@ export const proyectos: Proyecto[] = [
           'shadcn/ui',
         ],
         propia: true,
+        demo: 'https://panel-admin-opal-xi.vercel.app',
       },
       {
         nombre: 'Backend',
@@ -263,6 +267,7 @@ export const proyectos: Proyecto[] = [
       },
     ],
     imagen: '/DashboardGastronomicoPage.png',
+    demo: 'https://tienda-dun-six.vercel.app',
     privado: true,
   },
   {

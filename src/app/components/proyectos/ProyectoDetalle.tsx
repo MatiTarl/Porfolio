@@ -75,8 +75,7 @@ export default function ProyectoDetalle({
           <p className="text-zinc-200">{proyecto.descripcion}</p>
           {proyecto.privado ? (
             <p className="pt-3 text-sm text-zinc-400">
-              Es un desarrollo privado para un cliente, por eso el código no es
-              público.
+              Es un desarrollo privado, por eso el código no es público.
             </p>
           ) : (
             !proyecto.demo && (
@@ -121,6 +120,16 @@ export default function ProyectoDetalle({
                       {parte.descripcion}
                     </p>
                     <ListaTecnologias tecnologias={parte.tecnologias} chica />
+                    {parte.demo && (
+                      <a
+                        href={parte.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block pt-3 text-sm text-sky-600 hover:underline"
+                      >
+                        Ver demo de {parte.nombre.toLowerCase()} →
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
