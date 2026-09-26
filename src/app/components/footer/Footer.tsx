@@ -18,9 +18,9 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 text-center md:grid-cols-3 md:text-left">
         <div>
           <p className="text-xl">Matías Tari</p>
-          <p className="pt-1 text-zinc-400">Developer</p>
+          <p className="pt-1 text-zinc-400">Desarrollador</p>
           <p className="pt-3 text-sm text-zinc-400">
-            Integraciones entre sistemas y desarrollo web.
+            Integraciones entre sistemas (CRM, ERP, WhatsApp) y desarrollo web.
           </p>
         </div>
 

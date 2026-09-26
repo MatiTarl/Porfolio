@@ -5,13 +5,13 @@ import Footer from './components/footer/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Matías Tari | Developer',
+  title: 'Matías Tari | Desarrollador',
   description:
-    'Portfolio de Matías Tari, developer especializado en integraciones entre sistemas y desarrollo web. Proyectos, tecnologías y contacto.',
+    'Portfolio de Matías Tari, desarrollador especializado en integraciones entre sistemas (CRM, ERP, WhatsApp) y desarrollo web. Proyectos, tecnologías y contacto.',
   openGraph: {
-    title: 'Matías Tari | Developer',
+    title: 'Matías Tari | Desarrollador',
     description:
-      'Portfolio de Matías Tari, developer especializado en integraciones entre sistemas y desarrollo web. Proyectos, tecnologías y contacto.',
+      'Portfolio de Matías Tari, desarrollador especializado en integraciones entre sistemas (CRM, ERP, WhatsApp) y desarrollo web. Proyectos, tecnologías y contacto.',
     type: 'website',
     locale: 'es_AR',
   },
