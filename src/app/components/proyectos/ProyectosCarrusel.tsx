@@ -48,11 +48,9 @@ export default function ProyectosCarrusel({
 
   return (
     <div>
-      <div className="flex items-end justify-between gap-4 pb-2">
-        <div>
-          <h3 className="text-xl md:text-2xl">{categoria.titulo}</h3>
-          <p className="pt-1 text-sm text-zinc-400">{categoria.descripcion}</p>
-        </div>
+      {/* El título de la categoría ya está en el selector de arriba */}
+      <div className="flex min-h-10 items-center justify-between gap-4 pb-2">
+        <p className="text-sm text-zinc-400">{categoria.descripcion}</p>
         {!todoVisible && (
           <div className="flex shrink-0 gap-3">
             <BotonFlecha
