@@ -21,6 +21,8 @@ type Cometa = {
   y: number;
   // 0 = lejano (chico, lento, tenue) · 1 = cercano (grande, rápido, brillante)
   profundidad: number;
+  // px por segundo; depende de la profundidad pero con variación propia de cada cometa
+  velocidad: number;
 };
 
 // La estela se dibuja una sola vez en un canvas aparte y después se reutiliza con drawImage,
@@ -94,16 +96,20 @@ export default function CanvaCometa() {
     // ancho y el derecho al doble del alto (por la inclinación 2:1).
     const nuevoCometa = (enPantalla: boolean): Cometa => {
       const profundidad = Math.random() ** 1.5; // más cometas lejanos que cercanos
+      // Los cercanos van más rápido en promedio, pero cada uno tiene su propio factor
+      // (0,65× a 1,45×) para que dos del mismo tamaño no vayan iguales: ~45 a ~680 px/s
+      const velocidad = (70 + profundidad * 400) * (0.65 + Math.random() * 0.8);
       if (enPantalla) {
         return {
           x: Math.random() * ancho,
           y: Math.random() * alto,
           profundidad,
+          velocidad,
         };
       }
       return Math.random() < ancho / (ancho + alto * 2)
-        ? { x: Math.random() * ancho, y: -2, profundidad }
-        : { x: ancho + 2, y: Math.random() * alto, profundidad };
+        ? { x: Math.random() * ancho, y: -2, profundidad, velocidad }
+        : { x: ancho + 2, y: Math.random() * alto, profundidad, velocidad };
     };
 
     const ajustarTamano = () => {
@@ -145,9 +151,8 @@ export default function CanvaCometa() {
     const mover = (segundos: number) => {
       for (let i = 0; i < cometas.length; i++) {
         const c = cometas[i];
-        const velocidad = 90 + c.profundidad * 360; // px por segundo
-        c.x += DIRECCION.x * velocidad * segundos;
-        c.y += DIRECCION.y * velocidad * segundos;
+        c.x += DIRECCION.x * c.velocidad * segundos;
+        c.y += DIRECCION.y * c.velocidad * segundos;
         // Reaparece cuando la estela (lo último en salir, porque va atrás) termina de salir
         // por la izquierda o por abajo
         const largo = largoDe(c);
