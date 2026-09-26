@@ -62,12 +62,13 @@ export default function ProyectoDetalle({
             </button>
           </div>
 
-          {/* Sin captura no hay nada que mostrar: el detalle arranca por la descripción */}
-          {proyecto.imagen && (
+          {/* Sin captura ni diagrama no hay nada que mostrar: el detalle arranca por la descripción */}
+          {(proyecto.imagen || proyecto.flujo) && (
             <div className="pb-6">
               <ProyectoImagen
                 proyecto={proyecto}
                 sizes="(min-width: 768px) 700px, 100vw"
+                compacto
               />
             </div>
           )}
@@ -86,7 +87,20 @@ export default function ProyectoDetalle({
             )
           )}
 
-          <h4 className="pt-6 pb-2 text-xl">Qué incluye</h4>
+          {proyecto.logica && (
+            <>
+              <h4 className="pt-6 pb-2 text-xl">Cómo funciona</h4>
+              <ol className="list-decimal space-y-2 pl-5 text-zinc-300">
+                {proyecto.logica.map((paso) => (
+                  <li key={paso}>{paso}</li>
+                ))}
+              </ol>
+            </>
+          )}
+
+          <h4 className="pt-6 pb-2 text-xl">
+            {proyecto.logica ? 'Detalles técnicos' : 'Qué incluye'}
+          </h4>
           <ul className="list-disc space-y-1 pl-5 text-zinc-300">
             {proyecto.caracteristicas.map((caracteristica) => (
               <li key={caracteristica}>{caracteristica}</li>
