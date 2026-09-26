@@ -64,7 +64,7 @@ export default function Footer() {
           </a>
           <a
             href="/CurriculumMatias.pdf"
-            download="Curriculum Matias Tari"
+            download="Curriculum Matías Tari"
             className="inline-block pt-2 text-sm text-zinc-200 transition-colors hover:text-sky-600"
           >
             Descargar CV

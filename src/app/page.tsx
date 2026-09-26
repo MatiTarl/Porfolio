@@ -15,7 +15,7 @@ export default function Home() {
           <div className="flex flex-col items-center max-w-xl">
             <div className="flex justify-center">
               <div className="text-center font-normal ">
-                <h2 className="text-5xl tracking-tight ">Matias Tari</h2>
+                <h2 className="text-5xl tracking-tight ">Matías Tari</h2>
                 <h4 className="text-2xl pt-2">Desarrollador</h4>
                 <p className="pt-1 text-zinc-400">
                   Integraciones entre sistemas (CRM, ERP, WhatsApp) y desarrollo
