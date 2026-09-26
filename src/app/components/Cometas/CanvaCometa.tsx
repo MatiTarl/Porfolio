@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 
-// Todos los cometas viajan en la misma dirección: 2 px a la izquierda por cada 1 px hacia abajo
-const DIRECCION = { x: -2 / Math.sqrt(5), y: 1 / Math.sqrt(5) };
+// Todos los cometas viajan en la misma dirección: 2 px a la derecha por cada 1 px hacia arriba
+const DIRECCION = { x: 2 / Math.sqrt(5), y: -1 / Math.sqrt(5) };
 // Un cometa cada tantos px² de pantalla, con mínimo y máximo
 // (≈27 en escritorio y 10 en celular; casi todos quedan dentro de la pantalla)
 const AREA_POR_COMETA = 48000;
@@ -79,9 +79,9 @@ export default function CanvaCometa() {
     let sprite = crearSprite(1);
     let cometas: Cometa[] = [];
 
-    // Nace justo en el borde superior o en el derecho, para no gastar tiempo viajando fuera de
-    // pantalla. Cada borde se elige según cuántos cometas entran por él: el de arriba en
-    // proporción al ancho y el derecho al doble del alto (por la inclinación 2:1).
+    // Nace justo en el borde inferior o en el izquierdo, para no gastar tiempo viajando fuera de
+    // pantalla. Cada borde se elige según cuántos cometas entran por él: el de abajo en
+    // proporción al ancho y el izquierdo al doble del alto (por la inclinación 2:1).
     const nuevoCometa = (enPantalla: boolean): Cometa => {
       const profundidad = Math.random() ** 1.5; // más cometas lejanos que cercanos
       if (enPantalla) {
@@ -92,8 +92,8 @@ export default function CanvaCometa() {
         };
       }
       return Math.random() < ancho / (ancho + alto * 2)
-        ? { x: Math.random() * ancho, y: -2, profundidad }
-        : { x: ancho + 2, y: Math.random() * alto, profundidad };
+        ? { x: Math.random() * ancho, y: alto + 2, profundidad }
+        : { x: -2, y: Math.random() * alto, profundidad };
     };
 
     const ajustarTamano = () => {
@@ -143,13 +143,13 @@ export default function CanvaCometa() {
     const mover = (segundos: number) => {
       for (let i = 0; i < cometas.length; i++) {
         const c = cometas[i];
-        const velocidad = 40 + c.profundidad * 160; // px por segundo
+        const velocidad = 90 + c.profundidad * 360; // px por segundo
         c.x += DIRECCION.x * velocidad * segundos;
         c.y += DIRECCION.y * velocidad * segundos;
-        // Reaparece apenas su estela termina de salir por la izquierda o por abajo
-        // (la estela se extiende hacia arriba a la derecha de la cabeza)
+        // Reaparece apenas su estela termina de salir por la derecha o por arriba
+        // (la estela se extiende hacia abajo a la izquierda de la cabeza)
         const largo = largoDe(c);
-        if (c.x < largo * DIRECCION.x || c.y > alto + largo * DIRECCION.y) {
+        if (c.x > ancho + largo * DIRECCION.x || c.y < largo * DIRECCION.y) {
           cometas[i] = nuevoCometa(false);
         }
       }
