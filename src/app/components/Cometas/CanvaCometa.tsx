@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 
 // Todos los cometas viajan en la misma dirección: 2 px a la izquierda por cada 1 px hacia abajo
 const DIRECCION = { x: -2 / Math.sqrt(5), y: 1 / Math.sqrt(5) };
-// El dibujo va orientado con la cabeza arriba a la derecha y la estela extendida hacia abajo a
-// la izquierda, es decir, del lado hacia el que caen (así lo prefiere el diseño).
-const ANGULO_DIBUJO = Math.atan2(-DIRECCION.y, -DIRECCION.x);
+// El dibujo mira hacia donde cae: la cabeza va adelante (abajo a la izquierda) y la estela
+// queda atrás, extendida hacia arriba a la derecha.
+const ANGULO_DIBUJO = Math.atan2(DIRECCION.y, DIRECCION.x);
 // Un cometa cada tantos px² de pantalla, con mínimo y máximo
 // (≈27 en escritorio y 10 en celular; casi todos quedan dentro de la pantalla)
 const AREA_POR_COMETA = 48000;
@@ -88,10 +88,10 @@ export default function CanvaCometa() {
     const largoDe = (c: Pick<Cometa, 'profundidad'>) =>
       LARGO_SPRITE * escalaDe(c) * (0.5 + c.profundidad * 0.5);
 
-    // Entra por el borde superior o por el derecho, con la punta de la estela (que va adelante)
-    // justo asomando, para que no aparezca de golpe en medio de la pantalla. Cada borde se elige
-    // según cuántos cometas entran por él: el de arriba en proporción al ancho y el derecho al
-    // doble del alto (por la inclinación 2:1).
+    // Entra por el borde superior o por el derecho con la cabeza (que va adelante) justo en el
+    // borde; la estela todavía está afuera, así no aparece de golpe en medio de la pantalla.
+    // Cada borde se elige según cuántos cometas entran por él: el de arriba en proporción al
+    // ancho y el derecho al doble del alto (por la inclinación 2:1).
     const nuevoCometa = (enPantalla: boolean): Cometa => {
       const profundidad = Math.random() ** 1.5; // más cometas lejanos que cercanos
       if (enPantalla) {
@@ -101,14 +101,9 @@ export default function CanvaCometa() {
           profundidad,
         };
       }
-      const largo = largoDe({ profundidad });
       return Math.random() < ancho / (ancho + alto * 2)
-        ? { x: Math.random() * ancho, y: -largo * DIRECCION.y, profundidad }
-        : {
-            x: ancho - largo * DIRECCION.x,
-            y: Math.random() * alto,
-            profundidad,
-          };
+        ? { x: Math.random() * ancho, y: -2, profundidad }
+        : { x: ancho + 2, y: Math.random() * alto, profundidad };
     };
 
     const ajustarTamano = () => {
@@ -153,10 +148,10 @@ export default function CanvaCometa() {
         const velocidad = 90 + c.profundidad * 360; // px por segundo
         c.x += DIRECCION.x * velocidad * segundos;
         c.y += DIRECCION.y * velocidad * segundos;
-        // Reaparece cuando la cabeza (lo último en salir, porque la estela va adelante)
-        // termina de salir por la izquierda o por abajo
-        const margen = ALTO_SPRITE * escalaDe(c);
-        if (c.x < -margen || c.y > alto + margen) {
+        // Reaparece cuando la estela (lo último en salir, porque va atrás) termina de salir
+        // por la izquierda o por abajo
+        const largo = largoDe(c);
+        if (c.x < largo * DIRECCION.x || c.y > alto + largo * DIRECCION.y) {
           cometas[i] = nuevoCometa(false);
         }
       }
