@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </section>
       <section id="tecnologias">
-        <div className="w-full items-center pb-10">
+        <div className="flex w-full justify-center pb-20">
           <TecnologiasSection />
         </div>
       </section>
