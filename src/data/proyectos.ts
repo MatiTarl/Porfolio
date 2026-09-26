@@ -178,25 +178,6 @@ export const proyectos: Proyecto[] = [
     repo: 'https://github.com/MatiTarl/Delibery-Page-2',
   },
   {
-    id: 'mibarrio-delivery',
-    categoria: 'landing',
-    titulo: 'MiBarrio Delivery',
-    tipo: 'Landing',
-    resumen: 'Landing de un servicio de compras de supermercado a domicilio.',
-    descripcion:
-      'Landing page para MiBarrio Delivery, un servicio que lleva las compras del supermercado a la puerta de casa con foco en la relación precio-calidad.',
-    caracteristicas: [
-      'Presentación del servicio y sus beneficios',
-      'Carrusel de ofertas',
-      'Sección "Cómo funciona"',
-      'Páginas de términos, privacidad y reembolso',
-    ],
-    tecnologias: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-    imagen: '/MiBarrioPage.png',
-    demo: 'https://delivery-page-khaki.vercel.app',
-    repo: 'https://github.com/MatiTarl/Delivery-page-',
-  },
-  {
     id: 'dashboard-gastronomico',
     categoria: 'sistema',
     titulo: 'Dashboard gastronómico',
