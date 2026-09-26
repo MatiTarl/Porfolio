@@ -16,14 +16,19 @@ export default function Home() {
             <div className="flex justify-center">
               <div className="text-center font-normal ">
                 <h2 className="text-5xl tracking-tight ">Matias Tari</h2>
-                <h4 className="text-2xl pt-2">FullStack Web Developer</h4>
+                <h4 className="text-2xl pt-2">Developer</h4>
+                <p className="pt-1 text-zinc-400">
+                  Integraciones entre sistemas · Desarrollo web
+                </p>
               </div>
             </div>
             <div className="w-11/12 p-5 text-center">
               <p className="text-xl">Bienvenido/a!</p>
               <div className="">
-                ¡Hola! Soy Matías Tari, un desarrollador web Full Stack con una
-                sólida experiencia en diversas{' '}
+                ¡Hola! Soy Matías Tari, developer. Desarrollo sitios y sistemas
+                web, y me especializo en integrar sistemas: conecto CRMs, ERPs y
+                canales de mensajería para automatizar procesos de negocio.
+                Trabajo con diversas{' '}
                 <a
                   href="#tecnologias"
                   className=" text-sky-600 animate-pulse text-tecno"
