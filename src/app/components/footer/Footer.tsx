@@ -3,7 +3,7 @@ import Linkedin from '../../../ui/icons/Linkedin';
 import Gmail from '../../../ui/icons/Gmail';
 import Github from '../../../ui/icons/GitHub';
 
-const MAIL = 'Matiastari@outlook.com.ar';
+const MAIL = 'matiastari@outlook.com.ar';
 
 const secciones = [
   { texto: 'Inicio', href: '#HeadSection' },

@@ -394,6 +394,32 @@ export const proyectos: Proyecto[] = [
     privado: true,
   },
   {
+    id: 'hubspot-tickets-impresion',
+    categoria: 'integracion',
+    titulo: 'Tickets de depósito en PDF y monitoreo de impresión',
+    tipo: 'Integración CRM – infraestructura',
+    resumen:
+      'Genera desde HubSpot el ticket de depósito en PDF y avisa en el CRM cuando falla una impresora.',
+    descripcion:
+      'Integración para una empresa que imprime sus tickets de depósito en una sucursal: el comercial genera el PDF desde el propio ticket de HubSpot y, si una de las impresoras falla, el CRM le avisa a un administrador para que nadie se entere tarde. Todo se implementó en forma remota, sobre la PC que comparte las impresoras en la red del cliente.',
+    logica: [
+      'Una app privada de HubSpot suma una tarjeta en el ticket; al usarla, un webhook llama a una Azure Function.',
+      'La función arma el ticket de depósito en PDF, con el ancho exacto del papel de la impresora térmica, y lo adjunta al ticket de HubSpot.',
+      'En la PC de la sucursal corre un agente en PowerShell que revisa periódicamente el estado de las colas de impresión.',
+      'Ante una falla, el agente llama a un endpoint protegido con token, que crea una tarea en HubSpot asignada al administrador.',
+      'Se envía una sola alerta por episodio: mientras la falla sigue no se repite, y solo se rearma después de un período estable sin errores.',
+    ],
+    caracteristicas: [
+      'App privada de HubSpot (tarjeta en el ticket y webhook)',
+      'Generación de PDF en Azure Functions con deploy desde GitHub Actions',
+      'Estado de las alertas en Azure Table Storage',
+      'Instalador del agente con permisos, tarea programada y watchdog',
+    ],
+    tecnologias: ['HubSpot API', 'Azure Functions', 'Node.js', 'PowerShell'],
+    flujo: { sistemas: ['HubSpot', 'Impresoras'], bidireccional: true },
+    privado: true,
+  },
+  {
     id: 'bokun-pipedrive',
     categoria: 'integracion',
     titulo: 'Reservas de Bokun a Pipedrive',

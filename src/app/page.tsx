@@ -25,7 +25,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-11/12 p-5 text-center">
-              <p className="text-xl">Bienvenido/a!</p>
+              <p className="text-xl">¡Bienvenido/a!</p>
               <div className="">
                 ¡Hola! Soy Matías Tari. Desarrollo sitios y sistemas web, y me
                 especializo en integrar sistemas: conecto CRMs, ERPs y canales
@@ -70,7 +70,7 @@ export default function Home() {
             ¿Tenés una idea o un proyecto en mente? Escribime y lo charlamos.
           </p>
           <a
-            href="mailto:Matiastari@outlook.com.ar"
+            href="mailto:matiastari@outlook.com.ar"
             className="rounded-3xl bg-zinc-200 px-6 py-2.5 text-slate-950 transition-all duration-200 hover:bg-zinc-300"
           >
             Enviar un mail
